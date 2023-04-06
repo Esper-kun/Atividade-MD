@@ -4,17 +4,19 @@
 
 #define MAX_SIZE 1000
 
-void decomporNumero(int numero, int* divisores, int count)
+void decomporNumero(int numero, int divisores[], int counter)
 {
-  int divisor = 1;
+  int divisor = 2;
   divisor = acharDivisorPrimo(numero, divisor);
-  divisores[count] = divisor;
+
+  divisores[counter] = divisor;
+  printf("%i\n", divisores[counter]);
 
   if (numero == divisor){
     return;
   }
 
-  return decomporNumero(numero / divisor, divisores, count++);
+  decomporNumero(numero / divisor, divisores, ++counter);
 }
 
 void runOverArray()
@@ -25,12 +27,12 @@ void runOverArray()
 int main(int argc, char *argv[])
 {
   int divisores[MAX_SIZE];
-  int* pdivisores = divisores;
   int numero;
+
   printf("insira um numero:\n");
   scanf("%i", &numero);
 
-  decomporNumero(numero, pdivisores, 0);
+  decomporNumero(numero, divisores, 0);
   printf("%i %i", divisores[0], divisores[1]);
   return EXIT_SUCCESS;
 }
