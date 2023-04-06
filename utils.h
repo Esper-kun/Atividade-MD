@@ -1,6 +1,7 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-int isPrimeNumber(int number, int counter);
+int isPrimeNumber(int number);
+int acharDivisorPrimo(int number, int divisor);
 
-#endif UTILS_H
+#endif
